@@ -64,7 +64,6 @@ const Add = () => {
     const value = e.target.value;
     setData({...data,[name]:value})
   }
-  console.log(data)
 
   async function handelAddData(e) {
     e.preventDefault();
@@ -76,6 +75,8 @@ const Add = () => {
     formData.append("image",img)
 
     const ans = await axios.post(`http://localhost:4000/api/food/add`,formData);
+    console.log(ans);
+
     if(ans.data.success){
        setData({
         name: "",
@@ -89,7 +90,6 @@ const Add = () => {
     }else{
       toast.error(ans.data.message)
     }
-    console.log(ans);
   }
 
 

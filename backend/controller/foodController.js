@@ -2,7 +2,7 @@ import food from "../models/foodmdels.js";
 import fs from "fs";
 
 export const addFood = async (req, res) => {
-  let image_filename = req.file.filename;
+  // let image_filename = req.file.filename;
   const { name, description, price, category } = req.body;
 
   const foodobj = new food({
@@ -10,7 +10,7 @@ export const addFood = async (req, res) => {
     description,
     price,
     category,
-    image: image_filename,
+    image: req.file.path,
   })
 
   try {
