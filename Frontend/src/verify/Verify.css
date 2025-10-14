@@ -1,0 +1,32 @@
+.verify{
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: conic-gradient(#ff7a00, #ff3d00, #ff7a00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 1.6s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+/* Inner white circle */
+.spinner-inner {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}

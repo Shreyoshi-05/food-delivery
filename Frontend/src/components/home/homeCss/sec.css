@@ -1,0 +1,132 @@
+/* Container for the entire section */
+.cat_page {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  text-align: start;
+}
+
+/* Section heading */
+.cat_page h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Section description */
+.cat_page p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 700px;
+  /* margin: 0 auto 2rem auto; */
+  line-height: 1.6;
+}
+
+/* Container for category items */
+.cat_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  overflow-x: hidden;
+}
+
+/* Single category item */
+.single_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 120px;
+  min-width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.single_item:hover {
+  transform: translateY(-5px);
+}
+
+/* Circular Image */
+.single_item img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.single_item img:hover {
+  transform: scale(1.05);
+}
+
+/* Category Name */
+.single_item h3 {
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Styles */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .cat_page h2 {
+    font-size: 2rem;
+  }
+
+  .cat_page p {
+    font-size: 0.95rem;
+    width: 85%;
+  }
+
+  .single_item {
+    width: 100px;
+  }
+
+  .single_item img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .single_item h3 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .cat_page h2 {
+    font-size: 1.5rem;
+  }
+
+  .cat_page p {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .cat_content {
+    gap: 0.8rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+  }
+
+  .single_item {
+    width: 80px;
+  }
+
+  .single_item img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .single_item h3 {
+    font-size: 0.8rem;
+  }
+}

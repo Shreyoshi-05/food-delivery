@@ -1,0 +1,135 @@
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.food-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.food-img {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.food-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  transition: transform 0.3s ease;
+}
+
+.food-card:hover img {
+  transform: scale(1.05);
+}
+
+.cart-btns {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.add-btn {
+  background: #fff;
+  border: none;
+  color: #000;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #f4f4f4;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  padding: 4px 8px;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.counter button {
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.counter span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.food-details {
+  padding: 1rem;
+}
+
+.food-details h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.food-details p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.7rem;
+}
+
+.food-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  color: #e63946;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+/* 🔹 Responsive tweaks */
+@media (max-width: 768px) {
+  .food-img {
+    height: 150px;
+  }
+  .food-details h3 {
+    font-size: 1rem;
+  }
+  .food-details p {
+    font-size: 0.85rem;
+  }
+}

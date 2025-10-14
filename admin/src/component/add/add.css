@@ -1,0 +1,183 @@
+/* Uploaded image */
+.uploded_img {
+  width: 12rem;
+  height: 7rem;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+/* Main form container */
+.add {
+  padding-left: 5rem;
+  padding-top: 2rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Each section */
+.sec {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sec p,
+.sec label {
+  font-size: 0.9rem; /* smaller labels/text */
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+/* Upload container */
+.uploed-con {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: background 0.2s ease;
+}
+
+.uploed-con:hover {
+  background-color: #e6e6e6;
+}
+
+/* Input fields, textarea, select */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 0.85rem; /* smaller input font */
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  color: #333;
+  background-color: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #c70039;
+  box-shadow: 0 0 0 2px rgba(199, 0, 57, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+/* Dropdown select */
+select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Button */
+button {
+  padding: 0.9rem 1rem;
+  background-color: #c70039;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem; /* slightly smaller */
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #f61857;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Two-column section (category + price) */
+.t_sec {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.t_sec div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .add {
+    width: 60%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+  }
+
+  .uploed-con,
+  .uploded_img {
+    width: 10rem;
+    height: 6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .add {
+    width: 80%;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .uploed-con,
+  .uploded_img {
+    width: 9rem;
+    height: 5rem;
+  }
+
+  button {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .add {
+    width: 95%;
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+  }
+
+  .uploed-con,
+  .uploded_img {
+    width: 8rem;
+    height: 4.5rem;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 0.8rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+  }
+}

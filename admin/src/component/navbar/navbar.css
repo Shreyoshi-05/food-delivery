@@ -1,0 +1,91 @@
+/* ===== BASE NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+/* Scroll effect */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== LOGO SECTION ===== */
+.logo_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo_div .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff5733; /* same tomato color */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logo_div p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+/* ===== ADMIN AVATAR ===== */
+.admin img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff5733;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.admin img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(255, 87, 51, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.7rem 1.5rem;
+  }
+
+  .logo_div .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo_div p {
+    font-size: 0.75rem;
+  }
+
+  .admin img {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .logo_div .logo {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,7 @@
+.home{
+  width: 80%;
+  margin:6rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
