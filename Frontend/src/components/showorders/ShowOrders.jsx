@@ -6,13 +6,14 @@ import { UseAppContext } from "../context/AppContext";
 import Loding from "../loding/Loding";
 
 const ShowOrders = () => {
+  const url=import.meta.env.BACKEND_URL;
   const [lists, setLists] = useState([]);
   const { token } = UseAppContext();
 
   async function getOrderList() {
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/order/userorders`,
+        `${url}/api/order/userorders`,
         {},
         { headers: { token } }
       );

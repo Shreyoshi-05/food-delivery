@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 const Verify = () => {
+  const url=import.meta.env.BACKEND_URL;
   const [searchParams, setSearchParams] = useSearchParams();
   const success = searchParams.get("success");
   const orderId = searchParams.get("orderId");
@@ -12,7 +13,7 @@ const Verify = () => {
   const navigate = useNavigate();
 
   const verifyPayment = async () => {
-    const res = await axios.post(`http://localhost:4000/api/order/verify`,{success,orderId});
+    const res = await axios.post(`${url}/api/order/verify`,{success,orderId});
     console.log(res)
     if(res.data.success){
       navigate("/showorders")

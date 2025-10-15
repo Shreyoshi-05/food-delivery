@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import {useNavigate}  from 'react-router-dom'
 
 const Order = () => {
+  const url=import.meta.env.BACKEND_URL;
   const { foodItems, cartdata ,token,totalAmount} = UseAppContext();
 
   const [data, setData] = useState({
@@ -45,7 +46,7 @@ const Order = () => {
       amount: totalAmount + 2,
       // gettotalCartAmount()+2
     }
-    let response = await axios.post(`http://localhost:4000/api/order/place`,orderData,{headers:{token}});
+    let response = await axios.post(`${url}/api/order/place`,orderData,{headers:{token}});
     console.log(response)
 
     if(response.data.success){

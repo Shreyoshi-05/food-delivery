@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const CardSec = () => {
+  const url=import.meta.env.BACKEND_URL;
   const { foodItems, token, cartdata, setCartData } = UseAppContext();
   const [rating] = useState(4);
 
@@ -15,7 +16,7 @@ const CardSec = () => {
     setCartData((pre) => ({ ...pre, [id]: (pre[id] || 0) + 1 }));
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/cart/add`,
+        `${url}/api/cart/add`,
         { itemId: id },
         { headers: { token } }
       );
@@ -29,7 +30,7 @@ const CardSec = () => {
     setCartData((pre) => ({ ...pre, [id]: pre[id] > 0 ? pre[id] - 1 : 0 }));
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/cart/remove`,
+        `${url}/api/cart/remove`,
         { itemId: id },
         { headers: { token } }
       );
@@ -60,7 +61,7 @@ const CardSec = () => {
           transition={{ delay: index * 0.1 }} // slight stagger on scroll
         >
           <div className="food-img">
-            <img src={`http://localhost:4000/images/${food.image}`} alt={food.name} />
+            <img src={`${url}/images/${food.image}`} alt={food.name} />
 
             <div className="cart-btns">
               {cartdata[food._id] > 0 ? (

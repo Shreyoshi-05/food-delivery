@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const AppContext = createContext();
 
 export const AppProvidor = ({ children }) => {
+  const url=import.meta.env.BACKEND_URL;
   const [isSignin, setIsSignin] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [token, setToken] = useState("");
@@ -57,7 +58,7 @@ export const AppProvidor = ({ children }) => {
   
 
   async function getFood() {
-    const url = "http://localhost:4000/api/food/get";
+    const url = `${url}/api/food/get`;
 
     try {
       const res = await axios.get(url);
@@ -70,7 +71,7 @@ export const AppProvidor = ({ children }) => {
   async function getCartItems(tid) {
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/cart/show`,
+        `${url}/api/cart/show`,
         {},
         { headers: { token: tid } }
       );

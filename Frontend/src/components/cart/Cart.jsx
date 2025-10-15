@@ -5,6 +5,7 @@ import Loding from "../loding/Loding";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const url=import.meta.env.BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
   const { cartdata, foodItems } = UseAppContext();
   const location = useNavigate();
@@ -45,7 +46,7 @@ const Cart = () => {
           {cartItems.map((item) => (
             <tr key={item.id}>
               <td>
-                <img src={`http://localhost:4000/images/${item.image}`} alt={item.name} />
+                <img src={`${url}/images/${item.image}`} alt={item.name} />
               </td>
               <td>{item.name}</td>
               <td>${item.price}</td>

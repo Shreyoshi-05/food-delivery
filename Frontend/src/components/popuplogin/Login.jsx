@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const Login = () => {
+  const url=import.meta.env.BACKEND_URL;
   const[data,setData] = useState({
     "name":"",
     "email":"",
@@ -21,7 +22,7 @@ const Login = () => {
     e.preventDefault();
     if(!isSignin){
       try {
-        const res = await axios.post(`http://localhost:4000/api/user/register`,data);
+        const res = await axios.post(`${url}/api/user/register`,data);
         console.log(res)
         if(res.data.success){
           setIsSignin(true);
@@ -37,7 +38,7 @@ const Login = () => {
       }
 
     }else{
-      const res = await axios.post(`http://localhost:4000/api/user/login`,data);
+      const res = await axios.post(`${url}/api/user/login`,data);
         console.log(res)
         if(res.data.success){
           setIsSignin(true);
