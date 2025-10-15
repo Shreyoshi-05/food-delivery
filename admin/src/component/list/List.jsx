@@ -5,17 +5,16 @@ import axios from "axios";
 import Loading from "../loding/Loding";
 
 const List = () => {
-  const url = "http://localhost:4000"
+  const url = import.meta.env.BACKEND_URL
   const[data,setData] = useState([])
   async function getFoodData() {
     try {
-      const res = await axios.get(`http://localhost:4000/api/food/get`);
+      const res = await axios.get(`${url}/api/food/get`);
       setData(res.data.data)
     } catch (error) {
       toast.error(error.message);
     }
   }
-  console.log(data);
 
   useEffect(() => {
     getFoodData();

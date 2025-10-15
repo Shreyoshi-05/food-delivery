@@ -8,10 +8,11 @@ import Loding from "../loding/Loding";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const url = import.meta.env.BACKEND_URL
 
   const fetchAllOrders = async (req, res) => {
     try {
-      const res = await axios.get(`http://localhost:4000/api/order/list`);
+      const res = await axios.get(`${url}/api/order/list`);
       if (res.data.success) {
         setOrders(res.data.orderlist);
       } else {

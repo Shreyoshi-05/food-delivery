@@ -3,18 +3,21 @@ import fs from "fs";
 
 export const addFood = async (req, res) => {
   // let image_filename = req.file.filename;
-  const { name, description, price, category } = req.body;
+  
+
+  try {
+    const { name, description, price, category } = req.body;
+    const imageUrl = req.file?.path || req.file?.url;
 
   const foodobj = new food({
     name,
     description,
     price,
     category,
-    image: req.file.path,
+    image: imageUrl,
   })
-
-  try {
     await foodobj.save();
+    
     return res.json({
       success:true,
       message:"food item added"

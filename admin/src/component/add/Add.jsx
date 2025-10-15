@@ -7,6 +7,7 @@ import axios from 'axios'
 const Add = () => {
   const [hasimg, setHasimg] = useState(false);
   const [img, setImage] = useState(null);
+  const url = import.meta.env.BACKEND_URL
   
   function handelImageUplad(e) {
     console.log(e);
@@ -74,7 +75,7 @@ const Add = () => {
     formData.append("category",data.category)
     formData.append("image",img)
 
-    const ans = await axios.post(`http://localhost:4000/api/food/add`,formData);
+    const ans = await axios.post(`${url}/api/food/add`,formData);
     console.log(ans);
 
     if(ans.data.success){
