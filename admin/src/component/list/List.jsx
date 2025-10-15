@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./list.css";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import axios from "axios";
 import Loading from "../loding/Loding";
 

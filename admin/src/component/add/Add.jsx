@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./add.css";
 import { SlCloudUpload } from "react-icons/sl";
-import { toast } from "react-toastify";
 import axios from 'axios'
+import toast from "react-hot-toast";
 
 const Add = () => {
   const [hasimg, setHasimg] = useState(false);
