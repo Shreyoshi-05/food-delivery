@@ -15,7 +15,15 @@ const port = 4000;
 
 //middlewere
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+     "http://localhost:5174",
+    "https://food-delivery-frontend-seven-tau.vercel.app", 
+    "https://food-delivery-rogz.vercel.app"
+  ],
+  credentials: true,
+}));
 
 connectDb();
 //api endpoints
