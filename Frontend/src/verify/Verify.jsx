@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 const Verify = () => {
-  const url=import.meta.env.BACKEND_URL;
+  const url=import.meta.env.VITE_BACKEND_URL;
   const [searchParams, setSearchParams] = useSearchParams();
   const success = searchParams.get("success");
   const orderId = searchParams.get("orderId");

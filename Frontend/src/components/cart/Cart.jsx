@@ -5,7 +5,7 @@ import Loding from "../loding/Loding";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const url=import.meta.env.BACKEND_URL;
+  const url=import.meta.env.VITE_BACKEND_URL;
   const [cartItems, setCartItems] = useState([]);
   const { cartdata, foodItems } = UseAppContext();
   const location = useNavigate();

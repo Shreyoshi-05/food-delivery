@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Add = () => {
   const [hasimg, setHasimg] = useState(false);
   const [img, setImage] = useState(null);
-  const url = import.meta.env.BACKEND_URL
+  const url = import.meta.env.VITE_BACKEND_URL
   
   function handelImageUplad(e) {
     console.log(e);

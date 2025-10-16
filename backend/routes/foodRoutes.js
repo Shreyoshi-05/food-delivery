@@ -1,9 +1,11 @@
-import express from 'express'
-import food from '../models/foodmdels.js'
-import { addFood, getFood, removeFood } from '../controller/foodController.js';
-import multer from 'multer';
-import cloudinary from '../config/cloudinary.js';
-import {CloudinaryStorage} from 'multer-storage-cloudinary'
+import express from "express";
+import food from "../models/foodModels.js";
+import { addFood, getFood, removeFood } from "../controller/foodController.js";
+import multer from "multer";
+import cloudinary from "../config/cloudinary.js";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import uploaddataonmulter from "../middleware/multer.js";
+import { authMiddleware } from "../middleware/authMiddleware.js";
 
 const foodRouter = express.Router();
 
@@ -15,22 +17,18 @@ const foodRouter = express.Router();
 //   }
 // })
 
-const storage = new CloudinaryStorage({
-  cloudinary,
-  params:{
-    folder:"food_img_uploader",
-    allowed_formats:["jpg", "png", "jpeg", "webp"]
-  }
-})
+// const storage = new CloudinaryStorage({
+//   cloudinary,
+//   params: {
+//     folder: "food_img_uploader",
+//     allowed_formats: ["jpg", "png", "jpeg", "webp"],
+//   },
+// });
 
+// const upload = multer({ storage });
 
-const upload = multer({storage})
-
-
-foodRouter.post("/add",upload.single("image"),addFood)
-foodRouter.get("/get",getFood)
-foodRouter.put("/remove",removeFood);
-
-
+foodRouter.post("/add", uploaddataonmulter.single("image"), addFood);
+foodRouter.get("/get", getFood);
+foodRouter.put("/remove", removeFood);
 
 export default foodRouter;

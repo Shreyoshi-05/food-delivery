@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 const AppContext = createContext();
 
 export const AppProvidor = ({ children }) => {
-  const url=import.meta.env.BACKEND_URL;
+  const url=import.meta.env.VITE_BACKEND_URL;
   const [isSignin, setIsSignin] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [token, setToken] = useState("");
@@ -58,10 +58,9 @@ export const AppProvidor = ({ children }) => {
   
 
   async function getFood() {
-    const url = `${url}/api/food/get`;
-
     try {
-      const res = await axios.get(url);
+      const res = await axios.get(`${url}/api/food/get`);
+      // console.log(res);
       setFoodItems(res.data.data);
     } catch (error) {
       toast.error(error);

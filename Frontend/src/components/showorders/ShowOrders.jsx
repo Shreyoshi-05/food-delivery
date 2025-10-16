@@ -6,7 +6,7 @@ import { UseAppContext } from "../context/AppContext";
 import Loding from "../loding/Loding";
 
 const ShowOrders = () => {
-  const url=import.meta.env.BACKEND_URL;
+  const url=import.meta.env.VITE_BACKEND_URL;
   const [lists, setLists] = useState([]);
   const { token } = UseAppContext();
 

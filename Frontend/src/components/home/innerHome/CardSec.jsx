@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const CardSec = () => {
-  const url=import.meta.env.BACKEND_URL;
+  const url = import.meta.env.VITE_BACKEND_URL;
   const { foodItems, token, cartdata, setCartData } = UseAppContext();
   const [rating] = useState(4);
 
@@ -20,7 +20,10 @@ const CardSec = () => {
         { itemId: id },
         { headers: { token } }
       );
-      res.data.success ? toast.success(res.data.message) : toast.error(res.data.message);
+
+      res.data.success
+        ? toast.success(res.data.message)
+        : toast.error(res.data.message);
     } catch (error) {
       toast.error(error.message);
     }
@@ -34,7 +37,9 @@ const CardSec = () => {
         { itemId: id },
         { headers: { token } }
       );
-      res.data.success ? toast.success(res.data.message) : toast.error(res.data.message);
+      res.data.success
+        ? toast.success(res.data.message)
+        : toast.error(res.data.message);
     } catch (error) {
       toast.error(error.message);
     }
@@ -45,7 +50,11 @@ const CardSec = () => {
   // Motion variants for scroll-based reveal
   const cardVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -61,7 +70,14 @@ const CardSec = () => {
           transition={{ delay: index * 0.1 }} // slight stagger on scroll
         >
           <div className="food-img">
-            <img src={`${url}/images/${food.image}`} alt={food.name} />
+            <img
+              src={
+                food.image.startsWith("https")
+                  ? food.image
+                  : `${url}/images/${food.image}` 
+              }
+              alt={food.name}
+            />
 
             <div className="cart-btns">
               {cartdata[food._id] > 0 ? (
@@ -84,7 +100,10 @@ const CardSec = () => {
 
           <div className="food-details">
             <h3>{food.name}</h3>
-            <p>Food provides essential nutrients for overall health and well-being</p>
+            <p>
+              Food provides essential nutrients for overall health and
+              well-being
+            </p>
             <div className="food-footer">
               <span className="price">${food.price}</span>
               <div className="stars">
@@ -92,7 +111,11 @@ const CardSec = () => {
                   .fill("")
                   .map((_, i) => (
                     <span key={i}>
-                      {i < rating ? <FaStar color="orange" /> : <CiStar color="orange" />}
+                      {i < rating ? (
+                        <FaStar color="orange" />
+                      ) : (
+                        <CiStar color="orange" />
+                      )}
                     </span>
                   ))}
               </div>

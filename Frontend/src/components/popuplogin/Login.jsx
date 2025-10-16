@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const Login = () => {
-  const url=import.meta.env.BACKEND_URL;
+  const url=import.meta.env.VITE_BACKEND_URL;
   const[data,setData] = useState({
     "name":"",
     "email":"",

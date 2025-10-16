@@ -8,7 +8,7 @@ import Loding from "../loding/Loding";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const url = import.meta.env.BACKEND_URL
+  const url = import.meta.env.VITE_BACKEND_URL
 
   const fetchAllOrders = async (req, res) => {
     try {
