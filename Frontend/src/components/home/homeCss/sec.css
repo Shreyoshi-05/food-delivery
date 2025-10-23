@@ -1,7 +1,10 @@
 /* Container for the entire section */
 .cat_page {
   padding: 2rem;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color: #fff8f1;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.1);
   text-align: start;
 }
 

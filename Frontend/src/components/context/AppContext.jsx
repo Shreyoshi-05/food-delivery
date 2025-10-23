@@ -5,13 +5,14 @@ import toast from "react-hot-toast";
 const AppContext = createContext();
 
 export const AppProvidor = ({ children }) => {
-  const url=import.meta.env.VITE_BACKEND_URL;
+  const url = import.meta.env.VITE_BACKEND_URL;
   const [isSignin, setIsSignin] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
   const [token, setToken] = useState("");
   const [foodItems, setFoodItems] = useState([]);
   const [cartdata, setCartData] = useState({});
-  const [totalAmount , setTotalAmount] = useState(null);
+  const [totalAmount, setTotalAmount] = useState(null);
+  const [categoriesname, setCategoriesname] = useState("");
   const categories = [
     {
       name: "Salad",
@@ -54,8 +55,6 @@ export const AppProvidor = ({ children }) => {
         "https://i.pinimg.com/1200x/ed/8e/83/ed8e8380de566fd54a702f68102b4c49.jpg",
     },
   ];
-  
-  
 
   async function getFood() {
     try {
@@ -95,21 +94,21 @@ export const AppProvidor = ({ children }) => {
   }, []);
 
   async function getAmount() {
-    foodItems.filter((item)=>{
+    foodItems.filter((item) => {
       let price = 0;
-      if(cartdata[item._id]>0){
-        price += Number(item[price]) *cartdata[item._id]
+      if (cartdata[item._id] > 0) {
+        price += Number(item[price]) * cartdata[item._id];
       }
       setTotalAmount(price);
-    })
+    });
   }
 
   // console.log("cartdata",cartdata);
   // console.log("foodItems",foodItems);
 
-  useEffect(()=>{
+  useEffect(() => {
     getAmount();
-  },[cartdata])
+  }, [cartdata]);
 
   return (
     <AppContext.Provider
@@ -124,7 +123,9 @@ export const AppProvidor = ({ children }) => {
         foodItems,
         cartdata,
         setCartData,
-        totalAmount
+        totalAmount,
+        categoriesname,
+        setCategoriesname,
       }}
     >
       {children}

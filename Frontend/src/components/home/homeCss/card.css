@@ -1,209 +1,111 @@
-.cart_container {
+.food-section {
   width: 100%;
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 7rem auto 60px auto;
   padding: 0 20px;
   font-family: "Poppins", sans-serif;
-  margin-top: 7rem;
 }
 
-.cart-table {
+/* ---- Food Grid ---- */
+.food-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  background-color: #fff8f1;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.1);
+}
+
+/* ---- Each Food Card ---- */
+.food-card {
+  flex: 0 1 calc(25% - 25px); /* 4 per row, keeps width even if fewer cards */
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  max-width: 270px;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 136, 0, 0.25);
+}
+
+/* ---- Food Image ---- */
+.food-img {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
+  height: 200px;
   overflow: hidden;
 }
 
-.cart-table th {
-  text-align: left;
-  background: #ffebe8;
-  padding: 14px;
-  font-weight: 600;
-  color: #333;
-  font-size: 0.95rem;
-}
-
-.cart-table td {
-  padding: 14px;
-  border-bottom: 1px solid #f1f1f1;
-  color: #555;
-  font-size: 0.9rem;
-  vertical-align: middle;
-  text-align: left;
-}
-
-.cart-table img {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.cart-table .remove-btn {
-  color: #ff4d30;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.cart-table .remove-btn:hover {
-  color: #fff;
-  background: #ff4d30;
-  border-radius: 4px;
-  padding: 2px 6px;
-}
-
-/* ------- Payment Section ------- */
-.payment_sec {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.proceed {
-  flex: 1 1 300px;
-  background: #fff7f6;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  padding: 25px 20px;
-}
-
-.proceed h2 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  color: #333;
-}
-
-.proceed .part {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-.proceed button {
+.food-img img {
   width: 100%;
-  margin-top: 16px;
-  padding: 12px;
-  background: #ff4d30;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: 0.3s ease;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.proceed button:hover {
-  background: #e04329;
+.food-card:hover .food-img img {
+  transform: scale(1.05);
 }
 
-/* ------- Promo Code Section ------- */
-.code {
-  flex: 1 1 300px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  padding: 25px 20px;
-}
-
-.code p {
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 14px;
-}
-
-.code .input {
+/* ---- Food Details ---- */
+.food-details {
+  padding: 15px;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
-.code input {
-  flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.food-details h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.food-details p {
   font-size: 0.9rem;
+  color: #777;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
-.code button {
-  padding: 10px 16px;
-  border: none;
-  background: #ff4d30;
-  color: white;
-  border-radius: 8px;
+/* ---- Food Footer (Price + Rating) ---- */
+.food-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+  color: #ff7b00;
+  font-size: 1.1rem;
 }
 
-.code button:hover {
-  background: #e04329;
-}
-
-/* ------- Responsive Design ------- */
+/* ===============================
+   Responsive Design
+   =============================== */
 
 /* Tablet View */
-@media (max-width: 900px) {
-  .cart-table th,
-  .cart-table td {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .cart-table img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .payment_sec {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .proceed,
-  .code {
-    width: 100%;
+@media (max-width: 992px) {
+  .food-card {
+    flex: 0 1 calc(45% - 20px); /* 2 per row */
   }
 }
 
 /* Mobile View */
 @media (max-width: 600px) {
-  .cart-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .cart-table th,
-  .cart-table td {
-    font-size: 0.8rem;
-    padding: 8px;
-  }
-
-  .cart-table img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .proceed h2 {
-    font-size: 1rem;
-  }
-
-  .proceed button,
-  .code button {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .code input {
-    font-size: 0.85rem;
-    padding: 8px;
+  .food-card {
+    flex: 0 1 calc(100% - 10px); /* 1 per row */
+    min-width: auto;
   }
 }

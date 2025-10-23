@@ -4,7 +4,7 @@ import { UseAppContext } from '../../context/AppContext';
 import { motion } from 'framer-motion';
 
 const Sections = () => {
-  const { categories } = UseAppContext();
+  const { categories,categoriesname, setCategoriesname ,foodItems} = UseAppContext();
 
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -20,6 +20,10 @@ const Sections = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
+  function getCatagory(nn){
+    setCategoriesname(nn);
+  }
+
   return (
     <motion.div 
       className='cat_page'
@@ -34,7 +38,7 @@ const Sections = () => {
 
       <motion.div className="cat_content" variants={containerVariants}>
         {categories.map((item, idx) => (
-          <motion.div className="single_item" key={idx} variants={itemVariants} whileHover={{ scale: 1.05 }}>
+          <motion.div className="single_item" key={idx} onClick={()=>getCatagory(item.name)} variants={itemVariants} whileHover={{ scale: 1.05 }}>
             <img src={item.image} alt={item.name} />
             <h3>{item.name}</h3>
           </motion.div>

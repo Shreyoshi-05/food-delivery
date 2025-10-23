@@ -12,6 +12,8 @@ import Verify from './verify/Verify'
 import Cart from './components/cart/Cart'
 import ShowOrders from './components/showorders/ShowOrders'
 import Footer from './Footer'
+import Details from './components/details/Details'
+import Contact from './components/contact/Contact'
 
 const App = () => {
   const{popupOpen} = UseAppContext();
@@ -27,6 +29,8 @@ const App = () => {
       <Route path='/verify' element={<Verify />}></Route>
       <Route path='/cart' element={<Cart />}></Route>
       <Route path='/showorders' element={<ShowOrders />}></Route>
+      <Route path='/details/:id' element={<Details />}></Route>
+      <Route path='/contact' element={<Contact />}></Route>
     </Routes>
     {popupOpen && <Login />}
     <Footer />
